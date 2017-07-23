@@ -1,0 +1,34 @@
+---
+# tasks file for dnsmasq
+
+- name: Install dnsmasq Packages
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - "{{ dnsmasq_packages }}"
+    - "{{ dnsmasq_additional_packages }}"
+  tags:
+    - package
+    - dnsmasq
+
+- name: Configure dnsmasq
+  when: dnsmasq_config_files | length > 0
+  template:
+    src: "{{ item }}"
+    dest: "/etc/{{ item | basename | replace('.j2', '') }}"
+  with_items:
+    - "{{ dnsmasq_config_files }}"
+  notify: "restart dnsmasq"
+  tags:
+    - config
+    - dnsmasq
+
+- name: Start and enable dnsmasq
+  service:
+    name: dnsmasq
+    enabled: yes
+    state: started
+  tags:
+    - service
+    - dnsmasq

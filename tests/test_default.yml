@@ -1,0 +1,45 @@
+---
+- hosts: all
+  gather_facts: no
+  vars:
+    goss:
+      package:
+        dnsmasq:
+          installed: true
+      port:
+        tcp:53:
+          listening: true
+          ip:
+          - 127.0.0.1
+        udp:53:
+          listening: true
+          ip:
+          - 127.0.0.1
+      service:
+        dnsmasq:
+          enabled: true
+          running: true
+      user:
+        dnsmasq:
+          exists: true
+          uid: 106
+          gid: 65534
+          groups:
+          - nogroup
+          home: /var/lib/misc
+          shell: /bin/false
+      process:
+        dnsmasq:
+          running: true
+
+  pre_tasks:
+
+    - name: Copy tests to remote
+      copy:
+        content: "{{ goss | to_nice_yaml }}"
+        dest: "/tmp/goss.yml"
+
+    - name: test goss files
+      goss:
+        path: "/tmp/goss.yml"
+        format: documentation

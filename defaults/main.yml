@@ -1,0 +1,8 @@
+---
+# defaults file for dnsmasq
+dnsmasq_packages:
+  - dnsmasq
+
+dnsmasq_additional_packages: []
+
+dnsmasq_config_files: dnsmasq.conf.j2

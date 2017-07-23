@@ -1,0 +1,20 @@
+# {{ ansible_managed }}
+#
+# Basic server configuration
+#
+
+listen-address=127.0.0.1
+port=53
+bind-interfaces
+
+#
+# Name resolution options
+#
+
+domain-needed
+bogus-priv
+no-hosts
+dns-forward-max=150
+cache-size=1000
+neg-ttl=3600
+no-poll
