@@ -1,6 +1,25 @@
 ---
 # tasks file for dnsmasq
 
+- name: Create dnsmasq group
+  group:
+    name: dnsmasq
+    system: yes
+    state: present
+  tags:
+    - setup
+    - dnsmasq
+
+- name: Create dnsmasq user
+  user:
+    name: dnsmasq
+    group: dnsmasq
+    system: yes
+    state: present
+  tags:
+    - setup
+    - dnsmasq
+
 - name: Install dnsmasq Packages
   package:
     name: "{{ item }}"
