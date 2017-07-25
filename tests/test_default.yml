@@ -10,11 +10,11 @@
         tcp:53:
           listening: true
           ip:
-          - 127.0.0.1
+            - 127.0.0.1
         udp:53:
           listening: true
           ip:
-          - 127.0.0.1
+            - 127.0.0.1
       service:
         dnsmasq:
           enabled: true
@@ -25,7 +25,7 @@
           uid: 106
           gid: 65534
           groups:
-          - nogroup
+            - dnsmasq
           home: /var/lib/misc
           shell: /bin/false
       process:
