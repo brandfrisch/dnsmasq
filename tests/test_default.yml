@@ -22,12 +22,13 @@
       user:
         dnsmasq:
           exists: true
-          uid: 106
-          gid: 65534
           groups:
             - dnsmasq
-          home: /var/lib/misc
-          shell: /bin/false
+          home: /home/dnsmasq
+          shell: ""
+      group:
+        dnsmasq:
+          exists: true
       process:
         dnsmasq:
           running: true
