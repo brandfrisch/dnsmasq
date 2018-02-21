@@ -1,4 +1,4 @@
-dnsmasq [![Build Status](https://travis-ci.org/brandfrisch/dnsmasq.svg?branch=master)](https://travis-ci.org/brandfrisch/dnsmasq)
+dnsmasq
 =========
 
 This is a rule to setup dnsmasq on a unix system
