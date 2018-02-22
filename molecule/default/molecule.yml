@@ -8,8 +8,7 @@ lint:
 platforms:
   - name: instance
     image: brandfrisch/ubuntu-16.04:latest
-    capabilities:
-      - SYS_ADMIN
+    privileged: True
     command: /lib/systemd/systemd
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
