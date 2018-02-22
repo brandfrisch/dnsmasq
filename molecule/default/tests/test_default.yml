@@ -1,0 +1,30 @@
+---
+package:
+  dnsmasq:
+    installed: true
+port:
+  tcp:53:
+    listening: true
+    ip:
+      - 127.0.0.1
+  udp:53:
+    listening: true
+    ip:
+      - 127.0.0.1
+service:
+  dnsmasq:
+    enabled: true
+    running: true
+user:
+  dnsmasq:
+    exists: true
+    groups:
+      - dnsmasq
+    home: /home/dnsmasq
+    shell: ""
+group:
+  dnsmasq:
+    exists: true
+process:
+  dnsmasq:
+    running: true
