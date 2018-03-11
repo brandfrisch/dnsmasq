@@ -37,7 +37,7 @@
     src: "{{ item }}"
     dest: "/etc/{{ item | basename | replace('.j2', '') }}"
     owner: root
-    group: "{{ certificates_group }}"
+    group: root
     mode: 0644
   with_items:
     - "{{ dnsmasq_config_files }}"
